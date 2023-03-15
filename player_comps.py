@@ -44,7 +44,7 @@ imputer = KNNImputer(n_neighbors=3)
 # # Create Column to match with RotoGrinders
 # df["merge_name"] = df.merge_name.apply(
 #     lambda x: x.lower().split(" ")[0][0:4] + x.lower().split(" ")[1][0:6])
-df = pd.read_csv('/Users/nick/sleepertoolsversion2/combine_data/apicombine.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/stranger9977/player_comps_tool/master/apicombine.csv')
 df = df[(df['season'] >= 2012) & (df['season'] <= 2024)]
 
 df = df[['player_name','headshot','season', 'pos', 'ht', 'wt', 'forty','vertical','broad_jump','cone','shuttle','headshot', 'draftGrade','productionScore','nflComparison', 'bio','school']]
