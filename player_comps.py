@@ -107,7 +107,7 @@ selected_position = df_year[df_year['player_name'] == selected_player]['pos'].il
 # Create a dropdown menu for selecting the number of neighbors (n)
 n_options = list(range(1, 11))
 
-selected_n = st.selectbox("Select the number of Comps", n_options)
+selected_n = st.selectbox("Select the number of Comps", n_options, index=2)
 selected_n += 1
 
 # Create a button to run the knn_neighbors function
