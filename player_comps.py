@@ -84,21 +84,21 @@ st.title("Combine Data Player Comps")
 years = sorted(df['season'].unique())
 
 # Create a dropdown menu for selecting a year
-selected_year = st.selectbox("Select a Year", years, default_year)
+selected_year = st.selectbox("Select a Year", years, index=default_year)
 
 # Filter the dataset based on the selected year
 df_year = df[df['season'] == selected_year]
 
 positions = years = sorted(df['pos'].unique())
 
-selected_position = st.selectbox('Select A Position', positions, default_position)
+selected_position = st.selectbox('Select A Position', positions, index=default_position)
 
 df_position = df_year[df_year['pos']== selected_position]
 # Get the available players from the filtered dataset
 players = sorted(df_position['player_name'].unique())
 
 # Create a dropdown menu for selecting a player
-selected_player = st.selectbox("Select a player", players, default_player)
+selected_player = st.selectbox("Select a player", players, index=default_player)
 
 # Get the position for the selected player
 selected_position = df_year[df_year['player_name'] == selected_player]['pos'].iloc[0]
@@ -106,7 +106,7 @@ selected_position = df_year[df_year['player_name'] == selected_player]['pos'].il
 # Create a dropdown menu for selecting the number of neighbors (n)
 n_options = list(range(1, 11))
 
-selected_n = st.selectbox("Select the number of Comps", n_options, default_n)
+selected_n = st.selectbox("Select the number of Comps", n_options, index=default_n)
 selected_n += 1
 
 # Create a button to run the knn_neighbors function
