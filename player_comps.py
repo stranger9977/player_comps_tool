@@ -85,7 +85,7 @@ years = sorted(df['season'].unique())
 
 
 # Create a dropdown menu for selecting a year
-selected_year = st.selectbox("Select a Year", years, index=years[-1])
+selected_year = st.selectbox("Select a Year", years, index=11)
 
 # Filter the dataset based on the selected year
 df_year = df[df['season'] == selected_year]
