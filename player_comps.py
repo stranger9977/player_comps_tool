@@ -5,8 +5,7 @@ from sklearn.impute import KNNImputer
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 import streamlit as st
-import unidecode
-import nfl_data_py as nfl
+
 
 pd.set_option('display.max_columns', None)
 
@@ -46,6 +45,7 @@ imputer = KNNImputer(n_neighbors=3)
 #     lambda x: x.lower().split(" ")[0][0:4] + x.lower().split(" ")[1][0:6])
 df = pd.read_csv('https://raw.githubusercontent.com/stranger9977/player_comps_tool/master/apicombine.csv')
 df = df[(df['season'] >= 2012) & (df['season'] <= 2024)]
+df = df[(df['draftGrade'] >= 70) | (df['nflcomparison'].notnull())]
 
 df = df[['player_name','headshot','season', 'pos', 'ht', 'wt', 'forty','vertical','broad_jump','cone','shuttle','headshot', 'draftGrade','productionScore','nflComparison', 'bio','school']]
 # df = df.merge(api_df, on = 'merge_name')
